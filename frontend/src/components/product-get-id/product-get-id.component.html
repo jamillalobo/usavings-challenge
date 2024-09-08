@@ -1,0 +1,12 @@
+<div class="get-product">
+  <h2>Get Product</h2>
+  <input type="text" [(ngModel)]="productId" placeholder="Enter Product ID" />
+  <button [disabled]="!productId" (click)="getProduct(productId)">Get Product</button>
+
+  <div *ngIf="product && product.id">
+    <h3>Product Details</h3>
+    <p><strong>Name:</strong> {{ product.productName }}</p>
+    <p><strong>Code:</strong> {{ product.code }}</p>
+    <p><strong>Expiration Date:</strong> {{ product.expirationDate }}</p>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="form">
+  <h2>Update Product</h2>
+
+  <input [(ngModel)]="productId" id="productId" placeholder="Enter Product ID" />
+  <button (click)="loadProduct(productId)">Load Product</button>
+
+  <form *ngIf="updatedProduct.id">
+    <label for="productName">Product Name:</label>
+    <input [(ngModel)]="updatedProduct.productName" id="productName" name="productName" />
+
+    <label for="code">Product Code:</label>
+    <input [(ngModel)]="updatedProduct.code" id="code" name="code" />
+
+    <label for="expirationDate">Expiration Date:</label>
+    <input [(ngModel)]="updatedProduct.expirationDate" id="expirationDate" name="expirationDate" />
+
+    <button (click)="updateProduct()">Update Product</button>
+  </form>
+</div>

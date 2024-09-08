@@ -1,0 +1,27 @@
+<div class="product-list">
+  <h2>List of Products</h2>
+  <div class="filter">
+    <label for="filterDate">Filter by expiration date: </label>
+    <input type="date" [(ngModel)]="filterDate" (ngModelChange)="filterProducts()" />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Expiration Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.expirationDate }}</td>
+        <td>
+          <button (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
