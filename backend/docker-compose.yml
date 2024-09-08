@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: product-db
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./create-db.sql:/docker-entrypoint-initdb.d/create-db.sql
+    ports:
+      - '5432:5432'
